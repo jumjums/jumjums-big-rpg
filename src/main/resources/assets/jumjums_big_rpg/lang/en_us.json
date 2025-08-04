@@ -1,4 +1,6 @@
 {
   "itemGroup.jumjums_big_rpg.items": "Jumjums RPG Items",
-  "jumjums_big_rpg.modname": "Jumjums Big RPG"
+  "jumjums_big_rpg.modname": "Jumjums Big RPG",
+  "item.jumjums_big_rpg.dirt_skill_point": "Dirt Skill XP",
+  "item.jumjums_big_rpg.dirt_skill_point.tooltip": "Used for advancing Dirt mining abilities"
 }

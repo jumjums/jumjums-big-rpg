@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "jumjums_big_rpg:item/dirt_skill_point"
+  }
+}

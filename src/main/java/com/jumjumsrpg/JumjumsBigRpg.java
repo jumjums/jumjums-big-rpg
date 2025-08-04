@@ -1,5 +1,6 @@
 package com.jumjumsrpg;
 
+import com.jumjumsrpg.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +11,7 @@ public class JumjumsBigRpg implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModItems.registerModItems();
 		LOGGER.info("Initializing Jumjums Big RPG!");
 		// Register items, blocks, events, etc.
 	}
