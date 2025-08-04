@@ -1,41 +1,27 @@
 {
 	"schemaVersion": 1,
-	"id": "modid",
-	"version": "${version}",
-	"name": "Example mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
-	"authors": [
-		"Me!"
-	],
+	"id": "jumjums_big_rpg",
+	"version": "${mod_version}",
+	"name": "Jumjums Big RPG",
+	"description": "An RPG mod with attributes and progression.",
+	"authors": ["jumjums"],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/jumjums/jumjums-big-rpg",
+		"sources": "https://github.com/jumjums/jumjums-big-rpg"
 	},
-	"license": "CC0-1.0",
-	"icon": "assets/modid/icon.png",
+	"license": "MIT",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.example.ExampleMod"
+			"com.jumjums.rpg.JumjumsBigRpg"
 		],
 		"client": [
-			"com.example.ExampleModClient"
+			"com.jumjums.rpg.client.JumjumsBigRpgClient"
 		]
 	},
-	"mixins": [
-		"modid.mixins.json",
-		{
-			"config": "modid.client.mixins.json",
-			"environment": "client"
-		}
-	],
 	"depends": {
-		"fabricloader": ">=0.16.14",
-		"minecraft": "~1.21.8",
-		"java": ">=21",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
+		"fabricloader": ">=0.15.10",
+		"fabric": "*",
+		"minecraft": "1.20.6"
 	}
 }
