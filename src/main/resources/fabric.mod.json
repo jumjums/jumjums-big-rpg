@@ -13,10 +13,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.jumjums.rpg.JumjumsBigRpg"
+			"com.jumjumsprg.JumjumsBigRpg"
 		],
 		"client": [
-			"com.jumjums.rpg.client.JumjumsBigRpgClient"
+			"com.jumjumsprg.client.JumjumsBigRpgClient"
 		]
 	},
 	"depends": {
