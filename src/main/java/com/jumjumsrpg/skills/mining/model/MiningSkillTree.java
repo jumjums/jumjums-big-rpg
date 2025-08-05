@@ -1,33 +1,33 @@
 package com.jumjumsrpg.skills.mining.model;
 
-import java.util.List;
+import java.util.Map;
 
-public class MiningSkillTree {
-    private String id;
-    private String display_name;
-    private List<MiningSkillUpgrade> upgrades;
-
-    // Required for Gson
-    public MiningSkillTree() {}
-
-    public String getId() {
-        return id;
+public record MiningSkillTree(
+        String id,
+        String displayName,
+        int requiredTotalPoints,
+        Map<String, MiningSkillUpgrade> upgrades
+) {
+    public MiningSkillUpgrade getUpgrade(String upgradeId) {
+        return upgrades.get(upgradeId);
     }
 
-    public String getDisplayName() {
-        return display_name;
+    public boolean hasUpgrade(String upgradeId) {
+        return upgrades.containsKey(upgradeId);
     }
 
-    public List<MiningSkillUpgrade> getUpgrades() {
-        return upgrades;
+    public int getMaxRank(String upgradeId) {
+        MiningSkillUpgrade upgrade = upgrades.get(upgradeId);
+        return upgrade != null ? upgrade.maxRank() : 0;
     }
 
-    public MiningSkillUpgrade getUpgradeById(String upgradeId) {
-        for (MiningSkillUpgrade upgrade : upgrades) {
-            if (upgrade.getId().equals(upgradeId)) {
-                return upgrade;
-            }
-        }
-        return null;
+    public int getCostPerRank(String upgradeId) {
+        MiningSkillUpgrade upgrade = upgrades.get(upgradeId);
+        return upgrade != null ? upgrade.cost() : 0;
+    }
+
+    public int getRequiredTotalPoints(String upgradeId) {
+        MiningSkillUpgrade upgrade = upgrades.get(upgradeId);
+        return upgrade != null ? upgrade.requiredTotalPoints() : 0;
     }
 }

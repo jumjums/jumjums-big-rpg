@@ -1,6 +1,7 @@
 package com.jumjumsrpg;
 
 import com.jumjumsrpg.registry.ModDataComponents;
+import com.jumjumsrpg.skills.mining.effect.MiningSpeedHandler;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.client.item.TooltipType;
