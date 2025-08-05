@@ -3,9 +3,11 @@ package com.jumjumsrpg;
 import com.jumjumsrpg.registry.ModDataComponents;
 import com.jumjumsrpg.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.minecraft.resource.ResourceType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.jumjumsrpg.skills.mining.MiningSkillTreeLoader;
+import com.jumjumsrpg.skills.mining.loader.MiningSkillTreeLoader;
 
 public class JumjumsBigRpg implements ModInitializer {
 	public static final String MOD_ID = "jumjums_big_rpg";
@@ -17,7 +19,9 @@ public class JumjumsBigRpg implements ModInitializer {
 		LOGGER.info("Initializing Jumjums Big RPG!");
 		// Register items, blocks, events, etc.
 		ModDataComponents.register();
-		MiningSkillTreeLoader.register();
+		// Register resource reload listener for mining skill trees
+		ResourceManagerHelper.get(ResourceType.SERVER_DATA)
+				.registerReloadListener(new MiningSkillTreeLoader());
 
 	}
 }
