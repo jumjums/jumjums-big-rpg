@@ -23,6 +23,7 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:0.15.10"
 }
 
+
 loom {
 	splitEnvironmentSourceSets()
 }
