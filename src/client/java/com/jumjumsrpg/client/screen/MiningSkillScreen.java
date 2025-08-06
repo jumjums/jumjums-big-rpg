@@ -6,7 +6,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class MiningSkillScreen extends Screen {
-    private static final Identifier BACKGROUND = new Identifier("jumjums_big_rpg", "textures/gui/mining_skills.png");
+    private static final Identifier BACKGROUND = new Identifier("jumjums_big_rpg", "textures/gui/mining_skills_menu_background.png");
 
     public MiningSkillScreen() {
         super(Text.literal("Mining Skill Tree"));

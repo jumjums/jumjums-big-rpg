@@ -4,7 +4,6 @@ import com.jumjumsrpg.registry.ModDataComponents;
 import net.minecraft.client.item.TooltipType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.TooltipContext;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
