@@ -7,7 +7,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.minecraft.client.gui.screen.ingame.InventoryScreen;
-import net.minecraft.client.item.TooltipContext;
+import net.minecraft.item.Item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
@@ -33,9 +33,9 @@ public class JumjumsBigRpgClient implements ClientModInitializer {
 		});
 
 		// Add skill button to InventoryScreen
-		ScreenEvents.AFTER_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
-			if (screen instanceof InventoryScreen inventoryScreen) {
-				inventoryScreen.addDrawableChild(new MiningSkillScreenButton(inventoryScreen.x + 5, inventoryScreen.y + 5));
+		ScreenEvents.AFTER_INIT.register((client, screen, w, h) -> {
+			if (screen instanceof InventoryScreen inv) {
+				inv.addDrawableChild(new MiningSkillScreenButton(inv.x + 5, inv.y + 5));
 			}
 		});
 	}
