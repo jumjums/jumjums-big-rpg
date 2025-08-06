@@ -1,12 +1,13 @@
 package com.jumjumsrpg.skills.mining.model;
 
+import com.jumjumsrpg.skills.mining.model.MiningSkillEffect;
 import java.util.List;
 
 public record MiningSkillUpgrade(
         String id,
         String displayName,
         String description,
-        int cost,
+        SkillCost cost,
         int maxRank,
         int requiredTotalPoints,
         List<MiningSkillEffect> effects

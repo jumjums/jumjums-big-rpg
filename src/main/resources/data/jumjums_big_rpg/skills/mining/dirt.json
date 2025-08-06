@@ -1,8 +1,8 @@
 {
   "id": "dirt",
   "display_name": "Dirt Mining",
-  "upgrades": [
-    {
+  "upgrades": {
+    "mining_speed": {
       "id": "mining_speed",
       "display_name": "Mining Speed",
       "description": "Increases dirt mining speed by 10% per rank.",
@@ -12,12 +12,14 @@
         "item": "jumjums_big_rpg:dirt_skill_point",
         "amount": 1
       },
-      "effects": {
-        "type": "mining_speed_multiplier",
-        "value_per_rank": 0.10
-      }
+      "effects": [
+        {
+          "type": "mining_speed_multiplier",
+          "value_per_rank": 0.10
+        }
+      ]
     },
-    {
+    "stack_size": {
       "id": "stack_size",
       "display_name": "Stack Size",
       "description": "Increases dirt stack size by 64 per rank.",
@@ -27,10 +29,12 @@
         "item": "jumjums_big_rpg:dirt_skill_point",
         "amount": 1
       },
-      "effects": {
-        "type": "max_stack_bonus",
-        "value_per_rank": 64
-      }
+      "effects": [
+        {
+          "type": "max_stack_bonus",
+          "value_per_rank": 64
+        }
+      ]
     }
-  ]
+  }
 }

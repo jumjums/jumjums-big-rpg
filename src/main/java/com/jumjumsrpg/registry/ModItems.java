@@ -13,11 +13,11 @@ public class ModItems {
         JumjumsBigRpg.LOGGER.info("Registering items for " + JumjumsBigRpg.MOD_ID);
     }
 
-    private static Item register(String id, Item item) {
-        return Registry.register(Registries.ITEM, new Identifier(JumjumsBigRpg.MOD_ID, id), item);
+    private static Item register(Item item) {
+        return Registry.register(Registries.ITEM, new Identifier(JumjumsBigRpg.MOD_ID, "mining_skill_point"), item);
     }
 
-    public static final Item MINING_SKILL_POINT = register("mining_skill_point",
+    public static final Item MINING_SKILL_POINT = register(
             new MiningSkillPointItem(new Item.Settings()));
 
 }

@@ -1,26 +1,27 @@
 package com.jumjumsrpg;
 
+import com.jumjumsrpg.client.gui.MiningSkillScreenButton;
+import com.jumjumsrpg.item.MiningSkillPointItem;
 import com.jumjumsrpg.registry.ModDataComponents;
-import com.jumjumsrpg.skills.mining.effect.MiningSpeedHandler;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
-import net.minecraft.client.item.TooltipType;
+import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
+import net.minecraft.client.gui.screen.ingame.InventoryScreen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
-import java.util.List;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
-import com.jumjumsrpg.item.MiningSkillPointItem;
-
+import java.util.List;
 
 public class JumjumsBigRpgClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		JumjumsBigRpg.LOGGER.info("Initializing client-side features for Jumjums Big RPG.");
 
-		// Correctly scoped: inside the initializer
-		ItemTooltipCallback.EVENT.register((ItemStack stack, Item.TooltipContext context, TooltipType type, List<Text> lines) -> {
+		// Tooltip logic
+		ItemTooltipCallback.EVENT.register((ItemStack stack, Item.TooltipContext context, TooltipContext type, List<Text> lines) -> {
 			if (stack.getItem() instanceof MiningSkillPointItem) {
 				String material = stack.get(ModDataComponents.MINING_MATERIAL);
 				if (material != null && !material.isEmpty()) {
@@ -28,6 +29,13 @@ public class JumjumsBigRpgClient implements ClientModInitializer {
 				} else {
 					lines.add(Text.literal("Unassigned Mining XP").formatted(Formatting.RED));
 				}
+			}
+		});
+
+		// Add skill button to InventoryScreen
+		ScreenEvents.AFTER_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
+			if (screen instanceof InventoryScreen inventoryScreen) {
+				inventoryScreen.addDrawableChild(new MiningSkillScreenButton(inventoryScreen.x + 5, inventoryScreen.y + 5));
 			}
 		});
 	}

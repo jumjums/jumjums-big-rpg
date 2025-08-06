@@ -23,7 +23,7 @@ public record MiningSkillTree(
 
     public int getCostPerRank(String upgradeId) {
         MiningSkillUpgrade upgrade = upgrades.get(upgradeId);
-        return upgrade != null ? upgrade.cost() : 0;
+        return upgrade != null ? upgrade.cost().amount() : 0;
     }
 
     public int getRequiredTotalPoints(String upgradeId) {
